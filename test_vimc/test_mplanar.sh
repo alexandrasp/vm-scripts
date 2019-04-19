@@ -9,7 +9,7 @@ rm frame.*
 ./grab
 
 echo "Testing YVU420M"
-diff -q frame.yuvu $FRAME_DIR/frame.yuvu
+diff -q frame.yv12 $FRAME_DIR/frame.yv12
 
 echo "Testing NV12M"
 diff -q frame.nv12 $FRAME_DIR/frame.nv12
