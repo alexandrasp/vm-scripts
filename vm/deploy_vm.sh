@@ -24,14 +24,10 @@ sudo pacstrap mnt base base-devel $all_packs
 # configure ssh
 sudo chown $USER -R mnt
 sudo mkdir mnt/root/.ssh
-sudo cat ~/.ssh/id_rsa_collabora.pub > mnt/root/.ssh/authorized_keys
+sudo cp ~/.ssh/id_rsa.pub mnt/root/
 
-# create bootstrap script
-sudo echo "systemctl enable dhcpcd" > mnt/root/start.sh
-sudo echo "systemctl enable sshd" >> mnt/root/start.sh
-sudo echo "reboot" >> mnt/root/start.sh
-
-sudo echo "shared_folder /root/host 9p trans=virtio 0 0" >> mnt/etc/fstab
+# copy bootstrap script
+sudo cp start.sh mnt/root
 
 # umount disk
 sudo umount mnt
